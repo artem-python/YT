@@ -61,6 +61,7 @@ public static class MapSaveLoadUtils
 
         byte[] textureBytes = screen.EncodeToPNG();
         File.WriteAllBytes(path, textureBytes);
+        if(screen != null){ Destroy(screen); screen = null; }//Clean up the texture to reduse memory use😁
 
         Debug.LogWarning($"Save texture at path {path}");
     }
